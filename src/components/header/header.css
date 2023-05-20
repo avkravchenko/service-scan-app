@@ -1,0 +1,27 @@
+.header {
+  max-width: 1440px;
+  padding: 0 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .header .header__navigation__conteiner {
+    list-style: none; }
+    .header .header__navigation__conteiner li {
+      display: inline-block;
+      padding: 0 10px; }
+  .header .header__login-container {
+    display: flex;
+    justify-content: space-around; }
+    .header .header__login-container .header__login-container__login-btn, .header .header__login-container .header__login-container__singin-btn {
+      background-color: #7CE3E1;
+      border: none;
+      padding: .4rem 1rem; }
+    .header .header__login-container .line {
+      border-left: solid 2px #029491;
+      margin: 0 1rem; }
+    .header .header__login-container .header__login-container__singin-btn {
+      background-color: #7ce3e100;
+      color: #c2c2c2;
+      padding: 0; }
+
+/*# sourceMappingURL=header.css.map */

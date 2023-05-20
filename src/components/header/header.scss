@@ -1,0 +1,39 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .header__navigation__conteiner {
+        list-style: none;
+        
+        li {
+            display: inline-block;
+            padding: 0 10px;
+        }
+    }
+
+    .header__login-container {
+        display: flex;
+        justify-content: space-around;
+
+        .header__login-container__login-btn {
+            background-color: #7CE3E1;
+            border: none;
+            padding: .4rem 1rem;
+            border-radius: .3rem;
+        }
+
+        .line {
+            border-left: solid 2px #029491;
+            margin: 0 1rem;
+        }
+
+        .header__login-container__singin-btn {
+            @extend .header__login-container__login-btn;
+            background-color: #7ce3e100;
+            color: rgb(194, 194, 194);
+            padding: 0;
+        }
+    }
+}
+
