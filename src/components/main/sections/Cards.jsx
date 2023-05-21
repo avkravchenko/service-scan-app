@@ -8,6 +8,7 @@ const Cards = () => {
     const cards = [
         {
             id: 1,
+            selected: true,
             header: 'Beginner',
             headerDesc: 'Для небольшого исследования',
             actualPrice: '799 ₽',
@@ -21,6 +22,7 @@ const Cards = () => {
         },
         {
             id: 2,
+            selected: false,
             header: 'Pro',
             headerDesc: 'Для HR и фрилансеров',
             actualPrice: '1 299 ₽',
@@ -34,6 +36,7 @@ const Cards = () => {
         },
         {
             id: 3,
+            selected: false,
             header: 'Business',
             headerDesc: 'Для корпоративных клиентов',
             actualPrice: '2 379 ₽',
@@ -58,6 +61,7 @@ const Cards = () => {
                     rateDesc={card.rateDesc}
                     rateList={card.rateList}
                     cardId={card.id}
+                    selected={card.selected}
                 />
             )}
         </div>

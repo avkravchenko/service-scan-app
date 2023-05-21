@@ -6,3 +6,15 @@
     color: #fff;
     font-size: 1.3rem;
 }
+
+.btn-rate {
+    @extend .btn;
+    margin: 1rem;
+}
+
+.btn-rate-selected {
+    @extend .btn;
+    margin: 1rem;
+    color: black;
+    background-color: #D2D2D2;
+}
