@@ -1,6 +1,6 @@
 import React from "react";
 import './whyus.scss';
-import SimpleSlider from "../../Slider";
+import SimpleSlider from "../../slider/Slider";
 import whyUsPicture from '../../../assets/why-us-picture.jpg';
 
 
