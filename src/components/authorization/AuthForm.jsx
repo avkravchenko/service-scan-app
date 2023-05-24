@@ -1,13 +1,13 @@
 import React from "react";
 import Btn from "../Btn";
-import './form.scss';
+import './auth-form.scss';
 import { ReactComponent as Google } from '../../assets/google-btn.svg';
 import { ReactComponent as Facebook } from '../../assets/facebook-btn.svg';
 import { ReactComponent as Yandex } from '../../assets/yandex-btn.svg';
 import { ReactComponent as Lock } from '../../assets/lock.svg';
-import lock from '../../assets/lock.png';
 
-const Form = () => {
+
+const AuthForm = () => {
     return (
         <form className="form">
             <div className="form-header">
@@ -33,4 +33,4 @@ const Form = () => {
     )
 }
 
-export default Form;
+export default AuthForm;

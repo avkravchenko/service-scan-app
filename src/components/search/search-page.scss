@@ -1,0 +1,23 @@
+.main__search-page {
+    margin: 7rem auto;
+    max-width: 1440px;
+    display: flex;
+
+    .main__search-page__data {
+        flex: 2;
+
+        .main__search-page__header {
+            font-family: 'Ferry';
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        .main__search-page__text {
+            font-size: 1.25rem;
+        }
+    }
+
+    .main__search-page__image {
+        flex: 1;
+    }
+}

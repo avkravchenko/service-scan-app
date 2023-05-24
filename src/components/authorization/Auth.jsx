@@ -1,7 +1,7 @@
 import React from "react";
 import characters from '../../assets/Characters-with-keys.png';
 import './auth.scss';
-import Form from "./Form";
+import AuthForm from "./AuthForm";
 
 const Auth = () => {
     return (
@@ -17,7 +17,7 @@ const Auth = () => {
                 </div>
             </div>
             <div className="main-auth__form">
-                <Form />
+                <AuthForm />
             </div>
         </div>
     )
