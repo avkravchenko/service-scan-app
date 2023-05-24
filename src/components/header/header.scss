@@ -2,6 +2,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width:  1440px;
+    margin: 0 auto;
+
 
     .header__navigation__conteiner {
         list-style: none;
@@ -15,12 +18,14 @@
     .header__login-container {
         display: flex;
         justify-content: space-around;
+        
 
         .header__login-container__login-btn {
             background-color: #7CE3E1;
             border: none;
             padding: .4rem 1rem;
             border-radius: .3rem;
+            cursor: pointer;
         }
 
         .line {
@@ -33,6 +38,7 @@
             background-color: #7ce3e100;
             color: rgb(194, 194, 194);
             padding: 0;
+            cursor: pointer;
         }
     }
 }

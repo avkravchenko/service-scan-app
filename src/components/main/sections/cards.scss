@@ -2,10 +2,12 @@
     display: flex;
     margin: 2rem auto;
     gap: 2rem;
-    max-width: 70vw;
+    justify-content: center ;
+
 
     .main__our-rates-section__cards-container__card {
         display: flex;
+        max-width: 26rem;
         flex-direction: column;
         flex: 1;
         background-color: #fff;

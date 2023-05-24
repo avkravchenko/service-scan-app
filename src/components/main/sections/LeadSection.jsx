@@ -1,6 +1,7 @@
 import React from "react";
 import { ReactComponent as Human } from "../../../assets/content-illustration1.svg";
 import '../../../btn.scss';
+import Btn from "../../Btn";
 
 const LeadSection = () => {
     return (
@@ -11,7 +12,7 @@ const LeadSection = () => {
             о компании <br/>
             по его ИНН</h1>
             <p className="main__description-section__description__desc">Комплексный анализ публикаций, получение данных <br/> в формате PDF на электронную почту.</p>
-            <button className="btn">Запросить данные</button>
+            <Btn text={'Запросить данные'}/>
         </div>
         <div className="main__description-section__description__human-vector"><Human className="main__description-section__description__human-vector" /></div>
     </section>

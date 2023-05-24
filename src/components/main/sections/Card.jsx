@@ -4,6 +4,7 @@ import '../../../btn.scss';
 import { ReactComponent as Lamp } from "../../../assets/light-bulb.svg";
 import { ReactComponent as Arrow } from "../../../assets/arrow.svg";
 import { ReactComponent as Laptop } from "../../../assets/laptop.svg";
+import Btn from "../../Btn";
 
 const Card = (props) => {
     
@@ -51,8 +52,8 @@ const Card = (props) => {
             </div>
 
             {selected ? 
-                <button className="btn-rate-selected">Перейти в личный кабинет</button> :
-                <button className="btn-rate">Подробнее</button>
+                <Btn text={'Перейти в личный кабинет'} className={'btn-rate-selected'}/> :
+                <Btn text={'Подробнее'} className={'btn-rate'}/>
             }
         </div>
     )
