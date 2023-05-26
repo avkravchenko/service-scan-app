@@ -1,0 +1,43 @@
+.search-form {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 1rem;
+    filter: drop-shadow(2px 2px 5px #cfcfcf);
+
+    .search-form__inputs {
+        display: flex;
+        flex: 1;
+        gap: 1rem;
+        flex-direction: column;
+
+        .all-type-of-inputs {
+            padding: 4px 11px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%; /* Make the select inherit the width of its container */
+            max-width: 12rem;
+            box-sizing: border-box;
+        }
+
+        .req {
+            position: relative;
+            top: -1px;
+        }
+    } 
+    
+    .search-form__checks {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1;
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    
+}

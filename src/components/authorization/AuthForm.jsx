@@ -20,7 +20,7 @@ const AuthForm = () => {
                 <label htmlFor="password">Пароль:</label>
                 <input className='inputs-area__input' name="password" type="password" />
                 <Btn text={'Войти'} />
-                <a className="inputs-area__password-recovery" href="#">Восстановить пароль</a>
+                <button className="inputs-area__password-recovery">Восстановить пароль</button>
                 <p className="login-with-label">Войти через:</p>
                 <div className="login-with">
                     <button className="login-with__btn"><Google style={{display: 'block'}}/></button>
