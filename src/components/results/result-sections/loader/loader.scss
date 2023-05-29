@@ -1,0 +1,24 @@
+.loader-container {
+    display: flex;
+    justify-content: space-between;
+
+    .loader-container__text-block {
+        flex: 1;
+        .loader-container__text-block__header {
+            font-family: 'Ferry';
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        .loader-container__text-block__desc {
+            font-size: 1.25rem;
+        }
+    }
+
+    .loader-container__image {
+        flex: 1;
+        img {
+            width: 100%;
+        }
+    }
+}

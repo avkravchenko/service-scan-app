@@ -5,6 +5,9 @@ import Header from './components/header/Header';
 import Main from './components/main/Main';
 import Auth from './components/authorization/Auth';
 import SearchPage from './components/search/SearchPage';
+import Results from './components/results/Results';
+
+let test = true;
 
 function App() {
   return (
@@ -14,6 +17,9 @@ function App() {
         <Route path='/' element={<Main />} />
         <Route path='/authorization' element={<Auth />} />
         <Route path='/search' element={<SearchPage/>} />
+
+        {test ? <Route path="/search/results" element={<Results />} /> : null}
+        
       </Routes>
       <Footer />
     </div>
