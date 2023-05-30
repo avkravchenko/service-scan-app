@@ -4,8 +4,8 @@ import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
 import Main from './components/main/Main';
 import Auth from './components/authorization/Auth';
-import SearchPage from './components/search/SearchPage';
-import Results from './components/results/Results';
+import SearchPage from './components/main/search-page/search/SearchPage';
+import Results from './components/main/results-page/results/Results';
 
 let test = true;
 

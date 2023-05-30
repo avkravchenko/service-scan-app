@@ -1,5 +1,5 @@
 import React from "react";
-import resultsImg from '../../../../assets/results-human.png';
+import resultsImg from '../../../../../../assets/results-human.png';
 import './loader.scss';
 
 

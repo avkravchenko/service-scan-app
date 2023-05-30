@@ -3,7 +3,7 @@ import './search-form.scss';
 import Dates from "./Dates";
 import Checks from "./Checks";
 import { Input } from 'antd';
-import Btn from "../Btn";
+import Btn from "../../../button-component/Btn";
 import { Link } from "react-router-dom";
 
 

@@ -1,10 +1,10 @@
 import React from "react";
 import uuid from "react-uuid";
-import '../../../btn.scss';
-import { ReactComponent as Lamp } from "../../../assets/light-bulb.svg";
-import { ReactComponent as Arrow } from "../../../assets/arrow.svg";
-import { ReactComponent as Laptop } from "../../../assets/laptop.svg";
-import Btn from "../../Btn";
+import '../../../../button-component/btn.scss';
+import { ReactComponent as Lamp } from "../../../../../assets/light-bulb.svg";
+import { ReactComponent as Arrow } from "../../../../../assets/arrow.svg";
+import { ReactComponent as Laptop } from "../../../../../assets/laptop.svg";
+import Btn from "../../../../button-component/Btn";
 
 const Card = (props) => {
     

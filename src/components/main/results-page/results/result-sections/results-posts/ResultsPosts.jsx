@@ -1,6 +1,6 @@
 import React from "react";
 import './results-posts.scss';
-import Btn from '../../../Btn';
+import Btn from '../../../../../button-component/Btn';
 
 
 const ResultsPosts = () => {

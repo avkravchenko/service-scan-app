@@ -1,8 +1,8 @@
 import React from "react";
 import './main.scss';
-import LeadSection from "./sections/LeadSection";
-import WhyUs from "./sections/WhyUs";
-import OurRates from "./sections/OurRates";
+import LeadSection from "./home-page/sections/lead-section/LeadSection";
+import WhyUs from "./home-page/sections/why-us-section/WhyUs";
+import OurRates from "./home-page/sections/our-rates-section/OurRates";
 
 const Main = () => {
     return (

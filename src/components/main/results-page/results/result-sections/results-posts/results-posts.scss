@@ -4,7 +4,7 @@
 }
 
 .results-posts__content {
-    margin-top: 5rem;
+    margin: 2rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
@@ -34,7 +34,7 @@
             height: 200px;
             max-width: 100%;
             max-height: 200px;
-            background-image: url('../../../../assets/sergei-a--heLWtuAN3c-unsplash.jpg');
+            background-image: url('../../../../../../assets/sergei-a--heLWtuAN3c-unsplash.jpg');
             background-size: cover;
         }
     }

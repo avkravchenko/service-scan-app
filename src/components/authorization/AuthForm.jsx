@@ -1,5 +1,5 @@
 import React from "react";
-import Btn from "../Btn";
+import Btn from "../button-component/Btn";
 import './auth-form.scss';
 import { ReactComponent as Google } from '../../assets/google-btn.svg';
 import { ReactComponent as Facebook } from '../../assets/facebook-btn.svg';

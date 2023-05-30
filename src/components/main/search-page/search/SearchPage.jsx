@@ -1,6 +1,6 @@
 import React from "react";
 import './search-page.scss';
-import searchCharacter from '../../assets/search-characters.png'
+import searchCharacter from '../../../../assets/search-characters.png'
 import SearchForm from "./SearchForm";
 
 const SearchPage = () => {

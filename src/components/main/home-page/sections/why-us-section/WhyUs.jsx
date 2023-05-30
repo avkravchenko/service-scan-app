@@ -1,7 +1,7 @@
 import React from "react";
 import './whyus.scss';
-import SimpleSlider from "../../slider/Slider";
-import whyUsPicture from '../../../assets/why-us-picture.jpg';
+import SimpleSlider from "../../../../slider/Slider";
+import whyUsPicture from '../../../../../assets/why-us-picture.jpg';
 
 
 const WhyUs = () => {

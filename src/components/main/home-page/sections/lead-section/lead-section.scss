@@ -1,0 +1,33 @@
+.main__description-section{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    
+    .main__description-section__description{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+
+        .main__description-section__description__header {
+            font-family: 'Ferry';
+            text-align: start;
+            font-size: 3.75rem;
+            margin: 0;
+
+        }
+        .main__description-section__description__desc {
+            text-align: start;
+            font-size: 1.25rem;
+            margin-bottom: 4rem;
+        } 
+    } 
+
+    .main__description-section__description__image__wrapper {
+        
+        .main__description-section__description__image__wrapper__lead-page-image {
+            width: 100%;
+        }
+    }
+    
+}
