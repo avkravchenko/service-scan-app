@@ -43,6 +43,7 @@ const ResultsSlider = () => {
     return (
         <>
             <h2 className="common-results">Общая сводка</h2>
+            <p>Найдено 1488 публикаций</p>
             <div className="slider2">
                 <FontAwesomeIcon onClick={handlePrev} icon={faChevronLeft} 
                     style={{
