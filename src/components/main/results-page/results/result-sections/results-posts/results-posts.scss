@@ -42,5 +42,18 @@
 
 .load-more__wrapper {
     display: flex;
-    margin-bottom: 9rem;
+}
+
+@media screen and (max-width: 850px) {
+    .results-posts-header {
+        font-size: 1.5rem;
+        font-family: 'Ferry';
+    }
+
+    .results-posts__content {
+        margin: 2rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 }

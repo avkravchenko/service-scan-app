@@ -22,3 +22,21 @@
         }
     }
 }
+
+@media screen and (max-width: 850px) {
+    .loader-container {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+
+        .loader-container__text-block {
+            flex: 1;
+
+            .loader-container__text-block__header {
+                font-family: 'Ferry';
+                font-size: 1.5rem;
+                margin: 0;
+            }
+        }
+    }
+}

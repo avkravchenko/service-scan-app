@@ -12,22 +12,24 @@ import shield from '../../assets/shield.png';
 
 
 const settings = {
-  dots: true,
+  dots: false,
   infinite: true,
   speed: 500,
   slidesToShow: 3, // Display three cards at a time
   slidesToScroll: 3,
   responsive: [
     {
-      breakpoint: 768, // Adjust the number of cards for different breakpoints
+      breakpoint: 850, // Adjust the number of cards for different breakpoints
       settings: {
         slidesToShow: 2,
+        slidesToScroll: 2
       },
     },
     {
       breakpoint: 576,
       settings: {
         slidesToShow: 1,
+        slidesToScroll: 1
       },
     },
   ],

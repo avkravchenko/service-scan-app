@@ -8,22 +8,24 @@ import "slick-carousel/slick/slick-theme.css";
 
 
 const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 9, 
     slidesToScroll: 9,
     responsive: [
       {
-        breakpoint: 768, 
+        breakpoint: 850, 
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
+          slidesToScroll: 3
         },
       },
       {
         breakpoint: 576,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
+          slidesToScroll: 2,
         },
       },
     ],
