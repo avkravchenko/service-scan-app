@@ -1,21 +1,67 @@
 .main-auth {
-
+    padding: 1rem;
     max-width: 1440px;
     margin: 10vh auto;
     display: flex;
     justify-content: center;
+    min-height: 100vh;
 
     .main-auth__desc {
-        flex: 2;
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 5rem;
+    
 
         .main-auth__desc__header {
+            position: relative;
             font-family: 'Ferry';
             font-size: 2.5rem;
             margin: 0;
+        }
+
+        .image-wrapper {
+            margin: 3rem 0;
+            position: absolute;
+            top: 25rem;
         }
     }
 
     .main-auth__form {
         flex: 1;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .main-auth {
+        padding: 1rem;
+        max-width: 1440px;
+        margin: 3rem 0 10rem;;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .main-auth__desc {
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+
+            .main-auth__desc__header {
+                font-family: 'Ferry';
+                font-size: 1.5rem;
+                margin: 0;
+            }
+
+            .image-wrapper {
+                text-align: center;
+                position: static;
+            }
+        }
+
+        .main-auth__form {
+            margin-top: 6rem;
+            flex: 1;
+        }
+
+        
     }
 }

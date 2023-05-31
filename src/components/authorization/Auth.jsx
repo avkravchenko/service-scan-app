@@ -12,13 +12,14 @@ const Auth = () => {
                     на тариф, необходимо <br />
                     авторизоваться.
                 </h1>
-                <div>
+                <div className="main-auth__form">
+                    <AuthForm />
+                </div>
+                <div className="image-wrapper">
                     <img src={characters} alt="" />
                 </div>
             </div>
-            <div className="main-auth__form">
-                <AuthForm />
-            </div>
+            
         </div>
     )
 }

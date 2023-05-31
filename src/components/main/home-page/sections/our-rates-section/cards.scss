@@ -94,3 +94,13 @@
         border: solid 2px #FFB64F;
     }
 }
+
+@media screen and (max-width: 850px) {
+    .main__our-rates-section__cards-container  {
+        max-width: 22rem;
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}

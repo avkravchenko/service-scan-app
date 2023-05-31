@@ -3,6 +3,7 @@
     margin: 7rem auto;
     max-width: 1440px;
     display: flex;
+    min-height: 100vh;
 
     .main__search-page__data {
         flex: 2;
@@ -20,6 +21,24 @@
 
     .main__search-page__image {
         flex: 1;
+        img {
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .main__search-page {
+        padding: 1rem;
+        margin: 1rem auto;
+        max-width: 1440px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main__search-page__image {
+        flex: 1;
+        margin-bottom: 10rem;
         img {
             width: 100%;
         }

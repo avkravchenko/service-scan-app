@@ -1,7 +1,7 @@
 footer {
     background-color: #029491;
     width: 100%;
-    position: absolute;
+    position: relative;
     bottom: 0;
 
     .footer-container {
@@ -24,3 +24,11 @@ footer {
     }
 }
 
+@media screen and (max-width: 800px) {
+    footer {
+    
+        .footer-container {
+            padding: 0 1rem;
+        }
+    }
+}

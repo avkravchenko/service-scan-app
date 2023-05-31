@@ -63,6 +63,8 @@ const SearchForm = () => {
             </div>
             <div className="search-form__checks">
                 <Checks />
+            </div>
+            <div className="search-form__btn__wrapper">
                 <Link style={{alignSelf: 'flex-end'}} to='/search/results'><Btn className={'self-align-btn'} text={'Поиск'}/></Link>
             </div>
         </form>

@@ -71,3 +71,14 @@
         left: -3rem;
     }
 }
+
+@media screen and (max-width: 900px) {
+    .form {
+        margin: 0 auto;
+        .lock {
+            position: absolute;
+            top: -4rem;
+            left: 8rem;
+        }
+    }
+}

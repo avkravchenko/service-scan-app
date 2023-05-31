@@ -13,3 +13,17 @@
         }
     }
 }
+
+@media screen and (max-width: 800px) {
+    .main__why-us-section {
+        padding: 1rem;
+
+        .main__why-us-section__header {
+            font-size: 1.5rem;
+        }
+
+        .main__why-us-section__why-us-picture {
+            margin-top: 0;
+        }
+    }
+}

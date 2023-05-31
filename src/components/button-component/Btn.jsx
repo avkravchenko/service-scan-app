@@ -3,7 +3,7 @@ import './btn.scss';
 
 const Btn = ({text, className}) => {
     return (
-        <button className={`btn ${className}`}>{text}</button>
+        <button className={`btn ${className ? className : ''}`}>{text}</button>
     )
 }
 

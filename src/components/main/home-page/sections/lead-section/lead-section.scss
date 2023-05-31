@@ -31,3 +31,27 @@
     }
     
 }
+
+@media screen and (max-width: 800px) {
+    .main__description-section{
+        padding: 1rem;
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .main__description-section__description {
+            .main__description-section__description__header {
+                font-family: 'Ferry';
+                text-align: start;
+                font-size: 1.5rem;
+                margin: 0;
+            }
+
+            .main__description-section__description__btn-wrapper {
+                align-self: center;
+            }
+        }
+        
+    }
+}

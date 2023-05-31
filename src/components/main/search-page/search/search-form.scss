@@ -1,5 +1,6 @@
 .search-form {
     display: flex;
+    position: relative;
     gap: 1rem;
     padding: 1.5rem;
     background-color: #fff;
@@ -39,5 +40,29 @@
         }
     }
 
-    
+    .search-form__btn__wrapper {
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .search-form {
+        flex-direction: column;
+        
+        .search-form__inputs {
+            .all-type-of-inputs {
+                max-width: none;
+            }
+        }
+        .search-form__checks {
+            display: none;
+        }
+
+        .search-form__btn__wrapper {
+            position: static;
+            text-align: center;
+        }
+    }
 }
