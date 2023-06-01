@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 const SearchForm = () => {
     const [value, setValue] = useState('');
-    const [isSub, setIsSub] = useState(true)
+    //const [isSub, setIsSub] = useState(true)
 
     const handleInputChange = (event) => {
         const numericValue = event.target.value.replace(/[^0-9]/g, '');

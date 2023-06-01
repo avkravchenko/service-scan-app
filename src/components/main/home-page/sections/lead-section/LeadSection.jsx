@@ -17,7 +17,7 @@ const LeadSection = () => {
             <Link className="main__description-section__description__btn-wrapper" to='/search'><Btn text={'Запросить данные'}/></Link>
         </div>
         <div className="main__description-section__description__image__wrapper">
-            <img src={leadPageImage} className="main__description-section__description__image__wrapper__lead-page-image" />
+            <img src={leadPageImage} alt="" className="main__description-section__description__image__wrapper__lead-page-image" />
         </div>
     </section>
     )
