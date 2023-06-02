@@ -7,10 +7,15 @@ import { ReactComponent as Yandex } from '../../assets/yandex-btn.svg';
 import { ReactComponent as Lock } from '../../assets/lock.svg';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from "react-redux";
+import { addToken } from "../../store/actions";
+
+
 
 const AuthForm = () => {
     const navigate = useNavigate();
-    const [error, setError] = useState('')
+    const dispatch = useDispatch();
+    const [error, setError] = useState('');
 
     const [inputsValue, setInputsValue] = useState({
         login: '',
@@ -31,8 +36,9 @@ const AuthForm = () => {
                 }
             })
             .then((response) => {
-              console.log(response.data.accessToken);
+              localStorage.setItem('token', response.data.accessToken)
               response.data.accessToken && navigate('/')
+              dispatch(addToken(response.data.accessToken))
             })
             .catch((error) => {
               console.error(error);
@@ -75,5 +81,5 @@ const AuthForm = () => {
         </form>
     )
 }
-//{inputsValue.login || inputsValue.password ? isDisabled={true} : isDisabled={false}}
+
 export default AuthForm;
