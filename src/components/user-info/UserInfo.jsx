@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserInfo } from "../../store/actions";
+import './user-info.scss';
 
 
 
@@ -33,12 +34,12 @@ const UserInfo = () => {
     const usedCompanyCount = useSelector(state => state.userInfo.usedCompanyCount)
 
     return (
-        <div>
-            <div>
+        <div className="header__user-info">
+            <div className="header__user-info__desc">
                 <p>Использовано компаний</p>
                 <p>Лимит по компаниям</p>
             </div>
-            <div>
+            <div className="header__user-info__data">
                 <p>{usedCompanyCount}</p>
                 <p>{companyLimit}</p>
             </div>

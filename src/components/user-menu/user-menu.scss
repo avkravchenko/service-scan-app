@@ -1,0 +1,40 @@
+.header__user-menu {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: .3rem;
+
+    .header__user-menu__desc{
+        text-align: right;
+
+        p {
+            margin: .2rem;
+
+            &:last-child {
+                color: rgba(0, 0, 0, 0.257);
+
+                &:hover {
+                    color: rgb(0, 162, 255);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .header__user-menu__avatar {
+        width: 50px;
+        height: 50px;
+        
+
+        img {
+            width: 100%;
+            border-radius: 10rem;
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .header__user-menu {
+        display: none;
+    }
+}

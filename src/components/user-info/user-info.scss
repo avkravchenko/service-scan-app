@@ -1,0 +1,32 @@
+.header__user-info {
+    display: flex;
+    flex: 2;
+    justify-content: center;
+    margin: 0 3rem;
+    align-items: center;
+    background-color: #eaeaea;
+    border-radius: .5rem;
+    padding: .5rem;
+
+    .header__user-info__desc {
+        text-align: right;
+
+        p {
+            margin: .5rem;
+            color: rgba(0, 0, 0, 0.257);
+        }
+    }
+
+    .header__user-info__data {
+        text-align: left;
+
+        p {
+            margin: .5rem;
+            font-weight: bold;
+
+            &:last-child {
+                color: #8AC540;
+            }
+        }  
+    }
+}

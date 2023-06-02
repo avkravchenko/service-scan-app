@@ -5,10 +5,14 @@ import LogIn from "./LogIn";
 import { Link } from "react-router-dom";
 import Burger from "../burger-menu/Burger";
 import UserInfo from "../user-info/UserInfo";
+import { useSelector } from "react-redux";
+import UserMenu from "../user-menu/UserMenu";
 
 
 
 const Header = () => {
+    const token = useSelector(state => state.token)
+
     return (
         <header>
             <div className="header">
@@ -21,7 +25,7 @@ const Header = () => {
                     </ul>
                 </nav>
                 <UserInfo/>
-                <LogIn />
+                {token ? <UserMenu /> : <LogIn />}
                 <Burger />
             </div>
         </header>
