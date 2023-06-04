@@ -8,9 +8,7 @@ import { useSelector } from "react-redux";
 
 
 const LeadSection = () => {
-
     const token = useSelector(state => state.token)
-    console.log(token)
 
     return (
         <section className="main__description-section">

@@ -21,7 +21,6 @@ const UserInfo = () => {
                 }
             })
             .then((response) => {
-                console.log(response.data.eventFiltersInfo);
                 dispatch(getUserInfo(response.data.eventFiltersInfo))
             })
             .catch((error) => {

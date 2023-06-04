@@ -17,15 +17,18 @@ const Header = () => {
         <header>
             <div className="header">
                 <Link to="/"><div className="header__logo"><Logo /></div></Link>
-                <nav className="header__navigation">
-                    <ul className="header__navigation__conteiner">
-                        <li>Главная</li>
-                        <li>Тарифы</li>
-                        <li>FAQ</li>
-                    </ul>
-                </nav>
-                <UserInfo/>
-                {token ? <UserMenu /> : <LogIn />}
+                <div className="header__navigation__wrapper">
+                    <nav className="header__navigation">
+                        <ul className="header__navigation__conteiner">
+                            <li>Главная</li>
+                            <li>Тарифы</li>
+                            <li>FAQ</li>
+                        </ul>
+                    </nav>
+                    
+                    {token && <UserInfo/>}
+                    {token ? <UserMenu /> : <LogIn />}
+                </div>
                 <Burger />
             </div>
         </header>

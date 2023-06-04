@@ -26,7 +26,6 @@ const AuthForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(1)
 
             axios
             .post('https://gateway.scan-interfax.ru/api/v1/account/login', inputsValue, {

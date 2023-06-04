@@ -19,6 +19,10 @@ export const reducer = (state = initialState, action) => {
                     usedCompanyCount: action.data.usedCompanyCount
                 }
             }  
+        case ACTIONS.REMOVE_TOKEN:
+            return{
+                ...state, token: ''
+            }
         default: {
             return state;
         }
