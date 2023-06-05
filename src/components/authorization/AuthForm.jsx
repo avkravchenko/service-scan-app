@@ -53,6 +53,7 @@ const AuthForm = () => {
     }
 
     return (
+        
         <form onSubmit={handleSubmit} className="form">
             <div className="form-header">
                 <button className="form-header__log-in">Войти</button>
@@ -64,7 +65,7 @@ const AuthForm = () => {
                 <label htmlFor="password">Пароль:</label>
                 <input onChange={handleChange} className='inputs-area__input' name="password" type="password" />
                 <span style={{color: 'red'}}>{error}</span>
-                <Btn 
+                <Btn on 
                     isDisabled={ inputsValue.login === '' || inputsValue.password === '' } 
                     text={'Войти'} 
                 />

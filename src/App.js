@@ -38,11 +38,9 @@ function App() {
       <Routes>
         <Route path='/' element={<Main />} />
         <Route path='/authorization' element={<Auth />} />
-        {/* <Route path='/search' element={<SearchPage/>} />
-        <PrivateRoute path="/search" element={<SearchPage />} isAuthenticated={token} /> */}
         <Route
           path="/search"
-          element={token ? <SearchPage /> : <Navigate to="/authorization" replace />}
+          element={<SearchPage />}
         />
         <Route path="/search/results" element={<Results />} />
       </Routes>

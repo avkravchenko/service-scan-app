@@ -4,6 +4,7 @@ import './auth.scss';
 import AuthForm from "./AuthForm";
 
 const Auth = () => {
+
     return (
         <div className="main-auth">
             <div className="main-auth__desc">

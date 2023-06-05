@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Checkbox } from 'antd';
+import { useDispatch } from "react-redux";
+import { toggleIsBusinessNews, toggleMaxFullness } from "../../../../store/actions";
 
 const Checks = () => {
+    const [checkedArray, setCheckedArray] = useState()
+    const dispatch = useDispatch();
+    useEffect(() => {
+        if (checkedArray) {
+            const maxFullnessBool = checkedArray.includes('Признак максимальной полноты');
+            dispatch(toggleMaxFullness(maxFullnessBool))
+
+            const inBusinessNewsBool = checkedArray.includes('Упоминания в бизнес-контексте');
+            dispatch(toggleIsBusinessNews(inBusinessNewsBool))
+        }
+        
+    }, [checkedArray])
     
     const onChange = (checkedValues) => {
-        console.log('checked = ', checkedValues);
+        
+        setCheckedArray(checkedValues)
     }
+
+
 
     const plainOptions = [
         'Признак максимальной полноты',
