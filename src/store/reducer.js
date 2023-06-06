@@ -7,63 +7,65 @@ export const initialState = {
         usedCompanyCount: ''
     },
     formData: {
-        issueDateInterval: {
-          startDate: "",
-          endDate: ""
-        },
-        searchContext: {
-          targetSearchEntitiesContext: {
-            targetSearchEntities: [
-              {
-                type: "company",
-                sparkId: null,
-                entityId: null,
-                inn: null,
-                maxFullness: false,
-                inBusinessNews: false
-              }
-            ],
-            onlyMainRole: false,
-            tonality: "",
-            onlyWithRiskFactors: false,
-            riskFactors: {
-              and: [],
-              or: [],
-              not: []
-            },
-            themes: {
-              and: [],
-              or: [],
-              not: []
+      issueDateInterval: {
+        startDate: "",
+        endDate: ""
+      },
+      searchContext: {
+        targetSearchEntitiesContext: {
+          targetSearchEntities: [
+            {
+              type: "company",
+              sparkId: null,
+              entityId: null,
+              inn: null,
+              maxFullness: false,
+              inBusinessNews: false
             }
+          ],
+          onlyMainRole: false,
+          tonality: "",
+          onlyWithRiskFactors: false,
+          riskFactors: {
+            and: [],
+            or: [],
+            not: []
           },
-          themesFilter: {
+          themes: {
             and: [],
             or: [],
             not: []
           }
         },
-        searchArea: {
-            excludedSources: [],
-            includedSources: [],
-          includedSourceGroups: [],
-          excludedSourceGroups: []
-        },
-        attributeFilters: {
-          excludeTechNews: true,
-          excludeAnnouncements: true,
-          excludeDigests: true
-        },
-        similarMode: "duplicates",
-        limit: null,
-        sortType: "sourceInfluence",
-        sortDirectionType: "desc",
-        intervalType: "month",
-        histogramTypes: [
-            "totalDocuments",
-            "riskFactors"
-          ]
-      }
+        themesFilter: {
+          and: [],
+          or: [],
+          not: []
+        }
+      },
+      searchArea: {
+        excludedSources: [],
+        includedSources: [],
+        includedSourceGroups: [],
+        excludedSourceGroups: []
+      },
+      attributeFilters: {
+        excludeTechNews: true,
+        excludeAnnouncements: true,
+        excludeDigests: true
+      },
+      similarMode: "duplicates",
+      limit: null,
+      sortType: "sourceInfluence",
+      sortDirectionType: "desc",
+      intervalType: "month",
+      histogramTypes: [
+        "totalDocuments",
+        "riskFactors"
+      ]
+    },
+    searchFormResponse: null,
+    searchFormIds: null
 }
 
 export const reducer = (state = initialState, action) => {
@@ -225,6 +227,18 @@ export const reducer = (state = initialState, action) => {
                 ...state.formData,
                 limit: action.num
               }
+            }
+
+          case ACTIONS.ADD_SEARCH_FORM_RESPONSE:
+            return {
+              ...state,
+              searchFormResponse: action.data
+            }
+
+          case ACTIONS.ADD_SEARCH_FORM_IDS:
+            return {
+              ...state,
+              searchFormIds: action.data
             }
 
         default: {

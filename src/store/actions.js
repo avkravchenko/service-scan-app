@@ -10,7 +10,9 @@ export const ACTIONS = {
     TOGGLE_ONLY_MAIN_ROLE: 'TOGGLE_ONLY_MAIN_ROLE',
     ADD_TONALITY: 'ADD_TONALITY',
     TOGGLE_ONLY_WITH_RISK_FACTORS: 'TOGGLE_ONLY_WITH_RISK_FACTORS',
-    ADD_LIMIT: 'ADD_LIMIT'
+    ADD_LIMIT: 'ADD_LIMIT',
+    ADD_SEARCH_FORM_RESPONSE: 'ADD_SEARCH_FORM_RESPONSE',
+    ADD_SEARCH_FORM_IDS: 'ADD_SEARCH_FORM_IDS'
 }
 
 export const addToken = (token) => {
@@ -93,5 +95,19 @@ export const addLimit = (num) => {
     return {
         type: ACTIONS.ADD_LIMIT,
         num
+    }
+}
+
+export const addSearchFormResponse = (data) => {
+    return {
+        type: ACTIONS.ADD_SEARCH_FORM_RESPONSE,
+        data
+    }
+}
+
+export const addSearchFormIds = (data) => {
+    return {
+        type: ACTIONS.ADD_SEARCH_FORM_IDS,
+        data
     }
 }

@@ -1,9 +1,50 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import './results-posts.scss';
 import Btn from '../../../../../button-component/Btn';
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { addSearchFormIds } from "../../../../../../store/actions";
 
 
 const ResultsPosts = () => {
+    const formData = useSelector(state => state.formData)
+    const token = useSelector(state => state.token);
+    const dispatch = useDispatch(); 
+    const searchFormIds = useSelector(state => state.searchFormIds)
+    const [posts, setPosts] = useState()
+    console.log(posts)
+
+    useEffect(() => {
+        const idsForRequest = {
+            ids: []
+        };
+
+        if (searchFormIds) {
+            searchFormIds.items.map((item, index) => {
+                idsForRequest.ids.push(item.encodedId)
+            })
+        }
+        
+        if (token && searchFormIds) {
+            axios
+            .post('https://gateway.scan-interfax.ru/api/v1/documents', idsForRequest, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            .then((response) => {
+                console.log(response)
+                setPosts(response.data)
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+         }
+    }, [])
+
+
     return (
         <div>
             <h2 className="results-posts-header">Список документов</h2>

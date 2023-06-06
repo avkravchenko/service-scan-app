@@ -4,9 +4,9 @@ import Dates from "./Dates";
 import Checks from "./Checks";
 import { Input, InputNumber, Select } from 'antd';
 import Btn from "../../../button-component/Btn";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addINN, addLimit, addTonality } from "../../../../store/actions";
+import { addINN, addLimit, addSearchFormResponse, addTonality } from "../../../../store/actions";
 import axios from 'axios';
 
 
@@ -17,6 +17,7 @@ const SearchForm = () => {
     const [innValue, setInnValue] = useState('');
     const [numValue, setNumValue] = useState();
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const formData = useSelector(state => state.formData)
     const token = useSelector(state => state.token);
 
@@ -39,7 +40,7 @@ const SearchForm = () => {
                 }
             })
             .then((response) => {
-                console.log(response)
+                navigate('/search/results')
             })
             .catch((error) => {
                 console.error(error);
