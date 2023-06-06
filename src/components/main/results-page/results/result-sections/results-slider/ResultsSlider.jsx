@@ -125,7 +125,7 @@ const ResultsSlider = () => {
                     {searchFormResponse && searchFormResponse.data[0].data.map((item, index )=> {
                         const convertedDate = dayjs(item.date).format('DD.MM.YYYY');
                         return (
-                            <div key={uuid} className="slider-common-wrapper">
+                            <div key={uuid()} className="slider-common-wrapper">
                                 <div className="result-card">
                                     <p>{convertedDate}</p>
                                     <p>{item.value}</p>
