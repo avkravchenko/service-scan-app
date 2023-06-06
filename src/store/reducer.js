@@ -112,9 +112,9 @@ export const reducer = (state = initialState, action) => {
               formData: {
                 ...state.formData,
                 searchContext: {
-                  ...state.searchContext,
+                  ...state.formData.searchContext,
                   targetSearchEntitiesContext: {
-                    ...state.formData.targetSearchEntitiesContext,
+                    ...state.formData.searchContext.targetSearchEntitiesContext,
                     targetSearchEntities: [
                       {
                         ...state.formData.searchContext.targetSearchEntitiesContext
@@ -133,9 +133,9 @@ export const reducer = (state = initialState, action) => {
               formData: {
                 ...state.formData,
                 searchContext: {
-                  ...state.searchContext,
+                  ...state.formData.searchContext,
                   targetSearchEntitiesContext: {
-                    ...state.formData.targetSearchEntitiesContext,
+                    ...state.formData.searchContext.targetSearchEntitiesContext,
                     targetSearchEntities: [
                       {
                         ...state.formData.searchContext.targetSearchEntitiesContext
@@ -154,9 +154,9 @@ export const reducer = (state = initialState, action) => {
               formData: {
                 ...state.formData,
                 searchContext: {
-                  ...state.searchContext,
+                  ...state.formData.searchContext,
                   targetSearchEntitiesContext: {
-                    ...state.formData.targetSearchEntitiesContext,
+                    ...state.formData.searchContext.targetSearchEntitiesContext,
                     targetSearchEntities: [
                       {
                         ...state.formData.searchContext.targetSearchEntitiesContext
@@ -166,6 +166,64 @@ export const reducer = (state = initialState, action) => {
                     ]
                   }
                 }
+              }
+            }
+
+        case ACTIONS.TOGGLE_ONLY_MAIN_ROLE:
+          return {
+            ...state,
+            formData: {
+              ...state.formData,
+              searchContext: {
+                ...state.formData.searchContext,
+                targetSearchEntitiesContext: {
+                  ...state.formData.searchContext.targetSearchEntitiesContext,
+                  onlyMainRole: action.boolean
+                }
+              }
+            }
+          }
+
+        case ACTIONS.ADD_TONALITY: 
+          return {
+            ...state,
+            formData: {
+              ...state.formData,
+              searchContext: {
+                ...state.formData.searchContext,
+                targetSearchEntitiesContext: {
+                  ...state.formData.searchContext.targetSearchEntitiesContext,
+                  tonality: action.tonality
+                }
+
+              }
+
+            }
+          }
+
+        case ACTIONS.TOGGLE_ONLY_WITH_RISK_FACTORS: 
+          return {
+            ...state,
+            formData: {
+              ...state.formData,
+              searchContext: {
+                ...state.formData.searchContext,
+                targetSearchEntitiesContext: {
+                  ...state.formData.searchContext.targetSearchEntitiesContext,
+                  onlyWithRiskFactors: action.boolean
+                }
+
+              }
+
+            }
+          }
+
+          case ACTIONS.ADD_LIMIT:
+            return {
+              ...state,
+              formData: {
+                ...state.formData,
+                limit: action.num
               }
             }
 

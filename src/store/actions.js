@@ -6,7 +6,11 @@ export const ACTIONS = {
     ADD_END_DATE: 'ADD_END_DATE',
     ADD_INN: 'ADD_INN',
     TOGGLE_MAX_FULLNESS: 'TOGGLE_MAX_FULLNESS',
-    TOGGLE_IS_BUSINESS_NEWS: 'TOGGLE_IS_BUSINESS_NEWS'
+    TOGGLE_IS_BUSINESS_NEWS: 'TOGGLE_IS_BUSINESS_NEWS',
+    TOGGLE_ONLY_MAIN_ROLE: 'TOGGLE_ONLY_MAIN_ROLE',
+    ADD_TONALITY: 'ADD_TONALITY',
+    TOGGLE_ONLY_WITH_RISK_FACTORS: 'TOGGLE_ONLY_WITH_RISK_FACTORS',
+    ADD_LIMIT: 'ADD_LIMIT'
 }
 
 export const addToken = (token) => {
@@ -61,5 +65,33 @@ export const toggleIsBusinessNews = (boolean) => {
     return {
         type: ACTIONS.TOGGLE_IS_BUSINESS_NEWS,
         boolean
+    }
+}
+
+export const toggleOnlyMainRole = (boolean) => {
+    return {
+        type: ACTIONS.TOGGLE_ONLY_MAIN_ROLE,
+        boolean
+    }
+}
+
+export const addTonality = (tonality) => {
+    return {
+        type: ACTIONS.ADD_TONALITY,
+        tonality
+    }
+}
+
+export const toggleOnlyWithRiskFactors = (boolean) => {
+    return {
+        type: ACTIONS.TOGGLE_ONLY_WITH_RISK_FACTORS,
+        boolean
+    }
+}
+
+export const addLimit = (num) => {
+    return {
+        type: ACTIONS.ADD_LIMIT,
+        num
     }
 }

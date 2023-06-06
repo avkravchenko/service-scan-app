@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Checkbox } from 'antd';
 import { useDispatch } from "react-redux";
-import { toggleIsBusinessNews, toggleMaxFullness } from "../../../../store/actions";
+import { toggleIsBusinessNews, toggleMaxFullness, toggleOnlyMainRole, toggleOnlyWithRiskFactors } from "../../../../store/actions";
 
 const Checks = () => {
     const [checkedArray, setCheckedArray] = useState()
@@ -13,6 +13,12 @@ const Checks = () => {
 
             const inBusinessNewsBool = checkedArray.includes('Упоминания в бизнес-контексте');
             dispatch(toggleIsBusinessNews(inBusinessNewsBool))
+
+            const onlyMainRoleBool = checkedArray.includes('Главная роль в публикации');
+            dispatch(toggleOnlyMainRole(onlyMainRoleBool))
+
+            const onlyWithRiskFactorsBool = checkedArray.includes('Публикации только с риск-факторами');
+            dispatch(toggleOnlyWithRiskFactors(onlyWithRiskFactorsBool))
         }
         
     }, [checkedArray])
