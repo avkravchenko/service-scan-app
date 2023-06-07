@@ -60,10 +60,10 @@ const AuthForm = () => {
                 <button className="form-header__sign-up">Зарегистрироваться</button>
             </div>
             <div className="inputs-area">
-                <label htmlFor="text">Логин или номер телефона:</label>
-                <input onChange={handleChange} className='inputs-area__input' name="login" type="text" />
+                <label htmlFor="login">Логин или номер телефона:</label>
+                <input onChange={handleChange} className='inputs-area__input' id="login" name="login" type="text" />
                 <label htmlFor="password">Пароль:</label>
-                <input onChange={handleChange} className='inputs-area__input' name="password" type="password" />
+                <input onChange={handleChange} className='inputs-area__input' id="password" name="password" type="password" />
                 <span style={{color: 'red'}}>{error}</span>
                 <Btn on 
                     isDisabled={ inputsValue.login === '' || inputsValue.password === '' } 

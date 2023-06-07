@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^13.5.0",
     "antd": "^5.5.1",
     "axios": "^1.4.0",
+    "dompurify": "^3.0.3",
     "react": "^18.2.0",
     "react-burger-menu": "^3.0.9",
     "react-dom": "^18.2.0",
@@ -22,7 +23,8 @@
     "redux": "^4.2.1",
     "sass": "^1.62.1",
     "slick-carousel": "^1.8.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "xml-js": "^1.6.11"
   },
   "scripts": {
     "start": "react-scripts start",

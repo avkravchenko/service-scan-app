@@ -2,80 +2,83 @@ import React, { useEffect, useState } from "react";
 import './results-posts.scss';
 import Btn from '../../../../../button-component/Btn';
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import { addSearchFormIds } from "../../../../../../store/actions";
+import { useSelector } from "react-redux";
 import dayjs from 'dayjs';
-import 'dayjs/locale/en'; // Import the locale you want to use
+import 'dayjs/locale/en';
 import uuid from "react-uuid";
-
+import XMLToHTML from "../../../../../XML-converter/XMLToHTML";
+import { Button } from 'antd';
 
 const ResultsPosts = () => {
-    const formData = useSelector(state => state.formData)
     const token = useSelector(state => state.token);
-    const dispatch = useDispatch(); 
     const searchFormIds = useSelector(state => state.searchFormIds)
-    const [posts, setPosts] = useState()
-    console.log(posts)
+    const [posts, setPosts] = useState([]);
+    const [page, setPage] = useState(1);
+    const [loadedPosts, setLoadedPosts] = useState(10); 
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
-        const idsForRequest = {
-            ids: []
-        };
-
-        if (searchFormIds) {
-            searchFormIds.items.map((item, index) => {
-                idsForRequest.ids.push(item.encodedId)
-            })
-        }
         
         if (token && searchFormIds) {
+            const startIndex = (page - 1) * loadedPosts;
+            const endIndex = startIndex + loadedPosts;
+            const chunkedIds = searchFormIds.items
+                .slice(startIndex, endIndex)
+                .map(item => item.encodedId);
+
+                console.log(chunkedIds)
             axios
-            .post('https://gateway.scan-interfax.ru/api/v1/documents', idsForRequest, {
+            .post(
+                'https://gateway.scan-interfax.ru/api/v1/documents',
+                {
+                    ids: chunkedIds,
+                },
+                {
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
-                    'Authorization': `Bearer ${token}`
+                    Authorization: `Bearer ${token}`,
+                },
                 }
-            })
+            )
             .then((response) => {
-                console.log(response)
-                setPosts(response.data)
+                setPosts((prevPosts) => [...prevPosts, ...response.data]);
+                setLoading(false);
             })
             .catch((error) => {
                 console.error(error);
             });
-         }
-    }, [searchFormIds])
+        }
+    }, [page]);
 
+    const handleLoadMore = () => {
+        setPage(prevPage => prevPage + 1);
+        setLoading(true)
+    };
 
     return (
         <div>
             <h2 className="results-posts-header">Список документов</h2>
-            <div  className="results-posts__content">
-
-                {posts && posts.map(item => {
-
-                    return (
-                        <div key={uuid()} className="results-posts__content__card">
-                            <p>
-                                {dayjs(item.ok.issueDate).format('DD.MM.YYYY')} {item.ok.source.name}
-                            </p>
-                            <h2 className="results-posts__content__card__header">{item.ok.title.text}</h2>
-                            <p className="results-posts__content__card__post-type">Технические новости</p>
-                            <div className="results-posts__content__card__image">
-                            </div>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam ea praesentium voluptate tenetur, quas assumenda repellat delectus, earum amet voluptatum harum fugit debitis consequatur eos vel natus? Sunt veniam in iusto inventore ad provident minima. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe placeat ullam tenetur laboriosam voluptatum ut beatae deleniti perferendis pariatur mollitia? Magni nisi tempore iusto explicabo itaque fugiat at voluptates! Necessitatibus, beatae iusto pariatur nihil quaerat officiis velit totam, sit praesentium quisquam officia in sint explicabo modi, expedita distinctio dolore corrupti.</p>
-                            <Btn className={'results-posts__content__card__btn'} text={'Читать в источнике'} />
+            <div className="results-posts__content">
+                {posts.map(item => (
+                    <div key={uuid()} className="results-posts__content__card">
+                        <p>
+                            {dayjs(item.ok.issueDate).format('DD.MM.YYYY')} {item.ok.source.name}
+                        </p>
+                        <h2 className="results-posts__content__card__header">{item.ok.title.text}</h2>
+                        <p className="results-posts__content__card__post-type">Технические новости</p>
+                        <div className="results-posts__content__card__image">
                         </div>
-                    )
-                })}
-                
-               
-                
+                        <div className="results-posts__content__card__content"><XMLToHTML xml={item.ok.content.markup} /></div>
+                        <Btn className={'results-posts__content__card__btn'} text={'Читать в источнике'} />
+                    </div>
+                ))}
             </div>
-            <div className="load-more__wrapper"><Btn text={'Показать больше'} className={'load-more'} /></div>
+            <div className="load-more__wrapper">
+                <Button loading={loading} onClick={handleLoadMore} className={'load-more'} type="primary">Показать больше</Button>          
+            </div>
         </div>
-    )
+    );
 }
 
 export default ResultsPosts;

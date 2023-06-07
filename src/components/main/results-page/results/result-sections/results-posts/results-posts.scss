@@ -11,6 +11,7 @@
 
     .results-posts__content__card {
         display: flex;
+        justify-content: space-between;
         flex-direction: column;
         background-color: #fff;
         filter: drop-shadow(2px 2px 5px rgb(193, 193, 193));
@@ -37,6 +38,10 @@
             background-image: url('../../../../../../assets/sergei-a--heLWtuAN3c-unsplash.jpg');
             background-size: cover;
         }
+
+        .results-posts__content__card__content {
+                word-wrap: break-word;
+        }
     }
 }
 
@@ -44,16 +49,35 @@
     display: flex;
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 1100px) {
     .results-posts-header {
         font-size: 1.5rem;
         font-family: 'Ferry';
     }
 
     .results-posts__content {
-        margin: 2rem;
+        margin: 0 auto;
+        max-width: 500px;
         display: grid;
         grid-template-columns: 1fr;
         gap: 2rem;
+
+        .results-posts__content__card {
+            display: flex;
+            max-width: 500px;
+            flex-direction: column;
+            background-color: #fff;
+            filter: drop-shadow(2px 2px 5px rgb(193, 193, 193));
+            border-radius: 1rem;
+            padding: 1rem;
+        }
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .results-posts__content {
+        .results-posts__content__card {
+            max-width: 310px;
+        }
     }
 }

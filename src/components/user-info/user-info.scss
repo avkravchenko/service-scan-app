@@ -52,3 +52,9 @@
         }
     }
 }
+
+@media screen and (max-width: 280px) {
+    .header__user-info {
+        display: none;
+    }
+}

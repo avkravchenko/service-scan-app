@@ -64,6 +64,7 @@ const SearchForm = () => {
             <div className="search-form__inputs">
                 <label htmlFor="inn">ИНН компании <span className="req">*</span></label>
                 <Input 
+                    id="inn"
                     autoComplete="off"
                     status={(innValue.length > 10) ? 'error' : null}
                     className="all-type-of-inputs"
@@ -77,6 +78,7 @@ const SearchForm = () => {
 
                 <label htmlFor="mood">Тональность</label>
                 <Select 
+                    id="mood"
                     className="all-type-of-inputs"
                     name="mood" 
                     onChange={handleSelectChange}
@@ -96,6 +98,7 @@ const SearchForm = () => {
                     name="quantity"
                     value={numValue}
                     placeholder="От 1 до 1000"
+                    id="quantity"
                 />
                  {(numValue < 1 || numValue > 1000) && numValue ? <p style={{color: 'red', margin: 0}}>Введите корректное число</p> : null}
                 <Dates />
