@@ -20,11 +20,9 @@ function PrivateRoute({ isAuthenticated, ...props }) {
 
 function App() {
   const dispatch = useDispatch();
-  const token = useSelector(state => state.token)
-  const tokenFormLs = localStorage.getItem('token')
   
   useEffect(() => {
-    
+    const tokenFormLs = localStorage.getItem('token')
     if (tokenFormLs) {
       dispatch(addToken(tokenFormLs))
     }

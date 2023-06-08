@@ -58,36 +58,41 @@ const ResultsSlider = () => {
                     }
                 })
                 .then((response) => {
-                    dispatch(addSearchFormResponse(response.data))
+                    if (Object.keys(response.data.data).length !== 0) {
+                        console.log('obj is contain something')
+                        dispatch(addSearchFormResponse(response.data))
+                        let summ = 0;
+                        response.data.data[0].data.map(item => {
+                            summ += item.value
+                        })
+                        setQuantity(summ)
 
-                    let summ = 0;
-                    response.data.data[0].data.map(item => {
-                        summ += item.value
-                    })
-                    setQuantity(summ)
-
-                    
+                        axios
+                        .post('https://gateway.scan-interfax.ru/api/v1/objectsearch', formData, {
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'Accept': 'application/json',
+                                    'Authorization': `Bearer ${token}`
+                                }
+                            })
+                            .then((response) => {
+                                    dispatch(addSearchFormIds(response.data))
+                                })
+                            .catch((error) => {
+                                console.error(error);
+                            });
+                    } else (
+                        console.log('obj is not contain something')
+                        //dispatch(addSearchFormResponse(false))
+                    )
                 })
                 .catch((error) => {
                     console.error(error);
                 });
 
-                if (formData && token) {
-                    axios
-                    .post('https://gateway.scan-interfax.ru/api/v1/objectsearch', formData, {
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'Accept': 'application/json',
-                                'Authorization': `Bearer ${token}`
-                            }
-                        })
-                        .then((response) => {
-                                dispatch(addSearchFormIds(response.data))
-                            })
-                        .catch((error) => {
-                            console.error(error);
-                        });
-                }
+                /* if (formData && token) {
+                   
+                } */
         }
     }, [])
 
@@ -104,8 +109,9 @@ const ResultsSlider = () => {
     return (
         <>
             <h2 className="common-results">Общая сводка</h2>
-            <p>Найдено {quantity} публикаций</p>
-            <div className="slider2">
+            {searchFormResponse ? <p>Найдено {quantity} публикаций</p> : null}
+
+            {searchFormResponse ? (<div className="slider2">
                 <FontAwesomeIcon onClick={handlePrev} icon={faChevronLeft} 
                     style={{
                         color: "rgb(121, 121, 121)", 
@@ -147,7 +153,10 @@ const ResultsSlider = () => {
                 />
 
                
-            </div>
+            </div>) : 
+            <p>Данные не найдены</p>
+            }
+            
         </>
     )
 }

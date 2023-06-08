@@ -35,6 +35,7 @@ const AuthForm = () => {
                 }
             })
             .then((response) => {
+                console.log(response)
               localStorage.setItem('token', response.data.accessToken)
               response.data.accessToken && navigate('/')
               dispatch(addToken(response.data.accessToken))

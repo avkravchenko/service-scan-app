@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import './search-form.scss';
 import Dates from "./Dates";
 import Checks from "./Checks";
-import { Input, InputNumber, Select } from 'antd';
-import Btn from "../../../button-component/Btn";
+import { Button, Input, InputNumber, Select } from 'antd';
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addINN, addLimit, addSearchFormResponse, addTonality } from "../../../../store/actions";
+import { addINN, addLimit, addTonality } from "../../../../store/actions";
 import axios from 'axios';
 
 
@@ -20,6 +19,7 @@ const SearchForm = () => {
     const navigate = useNavigate()
     const formData = useSelector(state => state.formData)
     const token = useSelector(state => state.token);
+    const [loading, setLoading] = useState(false)
 
     const handleInputChange = (event) => {
         const numericValue = event.target.value.replace(/[^0-9]/g, '');
@@ -28,6 +28,7 @@ const SearchForm = () => {
     }
 
     const handleSubmit = (e) => {
+        setLoading(true)
         e.preventDefault();
         console.log('heh')
         if (token && formData) {
@@ -40,7 +41,9 @@ const SearchForm = () => {
                 }
             })
             .then((response) => {
+                console.log(response)
                 navigate('/search/results')
+                setLoading(false)
             })
             .catch((error) => {
                 console.error(error);
@@ -107,8 +110,11 @@ const SearchForm = () => {
                 <Checks />
             </div>
             <div className="search-form__btn__wrapper">
-                {/* <Link style={{alignSelf: 'flex-end'}} to='/search/results'><Btn onClick={handleSubmit} className={'self-align-btn'} text={'Поиск'}/></Link> */}
-                <Btn onClick={handleSubmit} className={'self-align-btn'} text={'Поиск'}/>
+                <Button 
+                    loading={loading} 
+                    className={'self-align-btn'} 
+                    type="primary"
+                    onClick={handleSubmit}>Поиск</Button>
             </div>
         </form>
     )
