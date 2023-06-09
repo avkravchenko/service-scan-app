@@ -5,6 +5,7 @@ import 'dayjs/locale/ru';
 import { DatePicker } from 'antd';
 import { useDispatch } from "react-redux";
 import { addEndDate, addStartDate } from "../../../../store/actions";
+import './range-picker.scss';
 
 
 const Dates = () => {

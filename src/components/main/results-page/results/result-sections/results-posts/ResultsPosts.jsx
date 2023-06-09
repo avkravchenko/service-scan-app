@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import './results-posts.scss';
-import Btn from '../../../../../button-component/Btn';
 import axios from "axios";
 import { useSelector } from "react-redux";
 import dayjs from 'dayjs';

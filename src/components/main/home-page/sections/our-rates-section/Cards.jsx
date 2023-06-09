@@ -2,9 +2,11 @@ import React from "react";
 import Card from "./Card";
 import './cards.scss';
 import uuid from 'react-uuid';
+import { useSelector } from "react-redux";
 
 const Cards = () => {
 
+    const token = useSelector(state => state.token)
     const cards = [
         {
             id: 1,
@@ -61,7 +63,7 @@ const Cards = () => {
                     rateDesc={card.rateDesc}
                     rateList={card.rateList}
                     cardId={card.id}
-                    selected={card.selected}
+                    selected={token && card.selected}
                 />
             )}
         </div>
