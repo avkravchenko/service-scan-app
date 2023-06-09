@@ -9,13 +9,13 @@ import './range-picker.scss';
 
 
 const Dates = () => {
-    const { RangePicker } = DatePicker;
+    //const { RangePicker } = DatePicker;
     const dateFormatList = ['DD/MM/YYYY', 'DD/MM/YY', 'DD-MM-YYYY', 'DD-MM-YY', 'DD.MM.YYYY', 'DD.MM.YY'];
     const dispatch = useDispatch();
-    const [startDate, setStartDate] = useState('')
-    const [endDate, setEndDate] = useState('')
-    console.log(startDate)
-    console.log(endDate)
+    //const [startDate, setStartDate] = useState('')
+    //const [endDate, setEndDate] = useState('')
+    //console.log(startDate)
+    //console.log(endDate)
     const disabledDate = (current) => {
         return current && current > dayjs().endOf('day');
     }; 
