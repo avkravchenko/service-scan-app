@@ -51,12 +51,13 @@
         }
 
         .results-posts__content__card__content {
-                word-wrap: break-word;
-                max-width: 500px;
+            width: 100%;
+            word-wrap: break-word;
+            text-align: justify;
 
-                img {
-                    display: none;
-                }
+            img {
+                display: none;
+            }
         }
 
         .results-posts__content__card__btn {
@@ -77,7 +78,7 @@
             position: absolute;
             color: grey;
             position: absolute;
-            bottom: 1rem;
+            bottom: .6rem;
             right: 1rem;
         }
     }

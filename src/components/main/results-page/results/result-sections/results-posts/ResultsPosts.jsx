@@ -16,6 +16,7 @@ const ResultsPosts = () => {
     const [loading, setLoading] = useState(false)
     const [startIndex, setStartIndex] = useState(0)
     const [endIndex, setEndIndex] = useState(10)
+    const searchFormResponse = useSelector(state => state.searchFormResponse)
 
     useEffect(() => {
         if (token && searchFormIds) {
@@ -56,13 +57,13 @@ const ResultsPosts = () => {
     return (
         <div>
           <h2 className="results-posts-header">Список документов</h2>
-          {posts && posts.length > 0 && searchFormIds ? (
+          {posts && posts.length > 0 && searchFormIds && searchFormResponse.data.length > 0 ? (
             <>
               <div className="results-posts__content">
                 {posts.map(item => (
                   <div key={uuid()} className="results-posts__content__card">
                     <p className="results-posts__content__card__source_date">
-                      {dayjs(item.ok.issueDate).format("DD.MM.YYYY")} {item.ok.url ?  (<a href={item.ok.url}>{item.ok.source.name}</a>) : (<span>{item.ok.source.name}</span>)} 
+                      {dayjs(item.ok.issueDate).format("DD.MM.YYYY")} {item.ok.url ?  (<a target="_blank" href={item.ok.url}>{item.ok.source.name}</a>) : (<span>{item.ok.source.name}</span>)} 
                     </p>
                     <h2 className="results-posts__content__card__header">{item.ok.title.text}</h2>
                     <p className="results-posts__content__card__post-type">
@@ -74,8 +75,8 @@ const ResultsPosts = () => {
                     <div className="results-posts__content__card__content">
                       <XMLToHTML xml={item.ok.content.markup} />
                     </div>
-                    {item.ok.url ?  (<a className="results-posts__content__card__btn" href={item.ok.url}>Читать в источнике</a>) : null}
-                    <span className="results-posts__content__amount-of-words">{item.ok.attributes.wordCount && item.ok.attributes.wordCount}</span>
+                    {item.ok.url ?  (<a target="_blank" className="results-posts__content__card__btn" href={item.ok.url}>Читать в источнике</a>) : null}
+                    <span className="results-posts__content__amount-of-words">{item.ok.attributes.wordCount && item.ok.attributes.wordCount} слова</span>
                   </div>
                 ))}
               </div>
@@ -87,7 +88,7 @@ const ResultsPosts = () => {
 
             </>
           ) : (
-            null
+            <p>Данные не найдены</p>
           )}
         </div>
       );

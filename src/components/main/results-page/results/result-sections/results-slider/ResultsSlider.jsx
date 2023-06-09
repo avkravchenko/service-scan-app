@@ -68,16 +68,11 @@ const ResultsSlider = () => {
                         
                     } else (
                         console.log('obj is not contain something')
-                        //dispatch(addSearchFormResponse(false))
                     )
                 })
                 .catch((error) => {
                     console.error(error);
                 });}
-
-                /* if (formData && token) {
-                   
-                } */
 
     }, [])
 
