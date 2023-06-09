@@ -7,12 +7,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addINN, addLimit, addSearchFormIds, addSearchFormResponse, addTonality } from "../../../../store/actions";
 import axios from 'axios';
+import dayjs from 'dayjs';
 
 
 
 
 const SearchForm = () => {
-    
+    const startDate = useSelector(state => state.formData.issueDateInterval.startDate)
+    const endDate = useSelector(state => state.formData.issueDateInterval.endDate)
     const [innValue, setInnValue] = useState('');
     const [numValue, setNumValue] = useState();
     const dispatch = useDispatch()
@@ -122,6 +124,10 @@ const SearchForm = () => {
                 />
                  {(numValue < 1 || numValue > 1000) && numValue ? <p style={{color: 'red', margin: 0}}>Введите корректное число</p> : null}
                 <Dates />
+
+                {startDate && endDate && dayjs(startDate).isAfter(dayjs(endDate)) && 
+                <p style={{color: 'red', margin: 0}}>Введите корректные данные</p>}
+
             </div>
             <div className="search-form__checks">
                 <Checks />

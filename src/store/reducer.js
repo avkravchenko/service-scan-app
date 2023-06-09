@@ -96,6 +96,18 @@ export const reducer = (state = initialState, action) => {
               }
             }
 
+        case ACTIONS.REMOVE_START_DATE:
+            return {
+              ...state,
+              formData: {
+                ...state.formData,
+                issueDateInterval: {
+                  ...state.formData.issueDateInterval,
+                  startDate: ''
+                }
+              }
+            }
+
         case ACTIONS.ADD_END_DATE:
             return {
               ...state,
@@ -104,6 +116,18 @@ export const reducer = (state = initialState, action) => {
                 issueDateInterval: {
                   ...state.formData.issueDateInterval,
                   endDate: action.date
+                }
+              }
+            }
+
+        case ACTIONS.REMOVE_END_DATE:
+            return {
+              ...state,
+              formData: {
+                ...state.formData,
+                issueDateInterval: {
+                  ...state.formData.issueDateInterval,
+                  endDate: ''
                 }
               }
             }

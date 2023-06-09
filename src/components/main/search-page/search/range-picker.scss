@@ -1,17 +1,4 @@
-@media screen and (max-width: 414px) {
-    .ant-picker-dropdown {
-        transform: scale(1.1);
-        .ant-picker-range-wrapper {
-            .ant-picker-panel-container {
-                .ant-picker-panel-layout {
-                    .ant-picker-panels {
-                        display: flex;
-                        flex-wrap: nowrap;
-                        flex-direction: column;
-                    }
-                }
-            }
-        }
-    }
+.date-picker-container {
+    display: flex;
+    gap: 1rem;
 }
-

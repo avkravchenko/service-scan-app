@@ -4,6 +4,8 @@ export const ACTIONS = {
     GET_USER_INFO: 'GET_USER_INFO',
     ADD_START_DATE: 'ADD_START_DATE',
     ADD_END_DATE: 'ADD_END_DATE',
+    REMOVE_START_DATE: 'REMOVE_START_DATE',
+    REMOVE_END_DATE: 'REMOVE_END_DATE',
     ADD_INN: 'ADD_INN',
     TOGGLE_MAX_FULLNESS: 'TOGGLE_MAX_FULLNESS',
     TOGGLE_IS_BUSINESS_NEWS: 'TOGGLE_IS_BUSINESS_NEWS',
@@ -46,6 +48,18 @@ export const addEndDate = (date) => {
     return {
         type: ACTIONS.ADD_END_DATE,
         date
+    }
+}
+
+export const removeStartDate = () => {
+    return {
+        type: ACTIONS.REMOVE_START_DATE
+    }
+}
+
+export const removeEndDate = () => {
+    return {
+        type: ACTIONS.REMOVE_END_DATE
     }
 }
 
