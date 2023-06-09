@@ -5,7 +5,7 @@ import Checks from "./Checks";
 import { Button, Input, InputNumber, Select } from 'antd';
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addINN, addLimit, addTonality } from "../../../../store/actions";
+import { addINN, addLimit, addSearchFormIds, addSearchFormResponse, addTonality } from "../../../../store/actions";
 import axios from 'axios';
 
 
@@ -44,10 +44,27 @@ const SearchForm = () => {
                 console.log(response)
                 navigate('/search/results')
                 setLoading(false)
+                dispatch(addSearchFormResponse(response.data))
+
             })
             .catch((error) => {
                 console.error(error);
             });
+
+            axios
+            .post('https://gateway.scan-interfax.ru/api/v1/objectsearch', formData, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    }
+                })
+                .then((response) => {
+                        dispatch(addSearchFormIds(response.data)) 
+                    })
+                .catch((error) => {
+                    console.error(error);
+                });
         }
     }
 

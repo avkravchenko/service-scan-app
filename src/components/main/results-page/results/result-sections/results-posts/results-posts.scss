@@ -1,15 +1,19 @@
+
+
 .results-posts-header {
     font-size: 1.9rem;
     font-family: 'Ferry';
 }
 
 .results-posts__content {
+    
     margin: 2rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
 
     .results-posts__content__card {
+        position: relative;
         display: flex;
         justify-content: space-between;
         flex-direction: column;
@@ -17,6 +21,13 @@
         filter: drop-shadow(2px 2px 5px rgb(193, 193, 193));
         border-radius: 1rem;
         padding: 1rem;
+
+        .results-posts__content__card__source_date {
+            color: grey;
+            a {
+                color: grey;
+            }
+        }
 
         .results-posts__content__card__header {
             margin: 1rem 0 0 0;
@@ -35,12 +46,39 @@
             height: 200px;
             max-width: 100%;
             max-height: 200px;
-            background-image: url('../../../../../../assets/sergei-a--heLWtuAN3c-unsplash.jpg');
+            background-image: url('../../../../../../assets/news.jpg');
             background-size: cover;
         }
 
         .results-posts__content__card__content {
                 word-wrap: break-word;
+                max-width: 500px;
+
+                img {
+                    display: none;
+                }
+        }
+
+        .results-posts__content__card__btn {
+            justify-content: center;
+            align-items: center;
+            background-color: #7CE3E1;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            display: flex;
+            max-width: 200px;
+            height: 50px;
+            font-size: 1rem;
+            color: #000;
+            padding: 0;
+        }
+
+        .results-posts__content__amount-of-words {
+            position: absolute;
+            color: grey;
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
         }
     }
 }
@@ -70,6 +108,7 @@
             filter: drop-shadow(2px 2px 5px rgb(193, 193, 193));
             border-radius: 1rem;
             padding: 1rem;
+            
         }
     }
 }
