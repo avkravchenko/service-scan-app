@@ -11,15 +11,17 @@ import { addToken } from './store/actions';
 import { useEffect, useState } from 'react';
 
 function App() {
+  const tokenFronStore = useSelector(state => state.token)
   const dispatch = useDispatch();
   const tokenFromLs = localStorage.getItem('token');
   const [token, setToken] = useState(!!tokenFromLs);
 
   useEffect(() => {
+    console.log('fuck')
     if (tokenFromLs) {
       dispatch(addToken(tokenFromLs));
     }
-  }, []);
+  }, [tokenFronStore]);
 
   const ProtectedRoute = ({ token, children }) => {
     if (!token) {
