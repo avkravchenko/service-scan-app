@@ -65,7 +65,8 @@ export const initialState = {
       ]
     },
     searchFormResponse: null,
-    searchFormIds: null
+    searchFormIds: null,
+    posts: []
 }
 
 export const reducer = (state = initialState, action) => {
@@ -264,6 +265,18 @@ export const reducer = (state = initialState, action) => {
               ...state,
               searchFormIds: action.data
             }
+
+          /* case ACTIONS.ADD_POSTS:
+            return {
+              ...state,
+              posts: [...state.posts, ...action.data]
+            }
+
+          case ACTIONS.REMOVE_POSTS:
+            return {
+              ...state,
+              posts: []
+            } */
 
         default: {
             return state;

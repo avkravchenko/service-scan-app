@@ -9,6 +9,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import { addToken } from "../../store/actions";
+import { Button } from "antd";
 
 
 
@@ -16,6 +17,7 @@ const AuthForm = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false)
 
     const [inputsValue, setInputsValue] = useState({
         login: '',
@@ -25,6 +27,7 @@ const AuthForm = () => {
     console.log(inputsValue)
 
     const handleSubmit = (e) => {
+        setLoading(true)
         e.preventDefault()
 
             axios
@@ -39,6 +42,7 @@ const AuthForm = () => {
               localStorage.setItem('token', response.data.accessToken)
               response.data.accessToken && navigate('/')
               dispatch(addToken(response.data.accessToken))
+              setLoading(false)
             })
             .catch((error) => {
               console.error(error);
@@ -66,10 +70,15 @@ const AuthForm = () => {
                 <label htmlFor="password">Пароль:</label>
                 <input onChange={handleChange} className='inputs-area__input' id="password" name="password" type="password" />
                 <span style={{color: 'red'}}>{error}</span>
-                <Btn on 
-                    isDisabled={ inputsValue.login === '' || inputsValue.password === '' } 
-                    text={'Войти'} 
-                />
+                
+                <Button 
+                    loading={loading} 
+                    onClick={handleSubmit} 
+                    type="primary" 
+                    disabled={ inputsValue.login === '' || inputsValue.password === '' }>
+                        Войти
+                </Button>
+
                 <button className="inputs-area__password-recovery">Восстановить пароль</button>
                 <p className="login-with-label">Войти через:</p>
                 <div className="login-with">

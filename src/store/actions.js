@@ -14,7 +14,9 @@ export const ACTIONS = {
     TOGGLE_ONLY_WITH_RISK_FACTORS: 'TOGGLE_ONLY_WITH_RISK_FACTORS',
     ADD_LIMIT: 'ADD_LIMIT',
     ADD_SEARCH_FORM_RESPONSE: 'ADD_SEARCH_FORM_RESPONSE',
-    ADD_SEARCH_FORM_IDS: 'ADD_SEARCH_FORM_IDS'
+    ADD_SEARCH_FORM_IDS: 'ADD_SEARCH_FORM_IDS',
+    ADD_POSTS: 'ADD_POSTS',
+    REMOVE_POSTS: 'REMOVE_POSTS'
 }
 
 export const addToken = (token) => {
@@ -125,3 +127,16 @@ export const addSearchFormIds = (data) => {
         data
     }
 }
+
+/* export const addPosts = (data) => {
+    return {
+        type: ACTIONS.ADD_POSTS,
+        data
+    }
+}
+
+export const removePosts = () => {
+    return {
+        type: ACTIONS.REMOVE_POSTS,
+    }
+} */

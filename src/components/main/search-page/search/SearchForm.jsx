@@ -5,7 +5,7 @@ import Checks from "./Checks";
 import { Button, Input, InputNumber, Select } from 'antd';
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addINN, addLimit, addSearchFormIds, addSearchFormResponse, addTonality } from "../../../../store/actions";
+import { addINN, addLimit, addSearchFormIds, addSearchFormResponse, addTonality, removeEndDate, removePosts, removeStartDate } from "../../../../store/actions";
 import axios from 'axios';
 import dayjs from 'dayjs';
 
@@ -67,6 +67,9 @@ const SearchForm = () => {
                 .catch((error) => {
                     console.error(error);
                 });
+
+                dispatch(removeStartDate()) 
+                dispatch(removeEndDate())
         }
     }
 
@@ -134,6 +137,7 @@ const SearchForm = () => {
             </div>
             <div className="search-form__btn__wrapper">
                 <Button 
+                    disabled={!innValue || !numValue || !startDate || !endDate}
                     loading={loading} 
                     className={'self-align-btn'} 
                     type="primary"
