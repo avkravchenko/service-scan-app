@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <footer>
             <div className="footer-container">
-                <div><img src={logoFooter} alt="" /></div>
+                <div className="footer__logo"><img src={logoFooter} alt="" /></div>
                 <div className="footer__info">
                     <ul className="footer__info__list">
                         <li>г. Москва, Цветной б-р, 40</li>

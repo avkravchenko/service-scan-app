@@ -6,23 +6,21 @@ import { faChevronLeft} from '@fortawesome/free-solid-svg-icons';
 
 import "slick-carousel/slick/slick-theme.css";
 import './result-slider.scss';
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import uuid from "react-uuid";
-import axios from "axios";
 import dayjs from 'dayjs';
 import 'dayjs/locale/en'; 
 
 const ResultsSlider = () => {
-  const token = useSelector(state => state.token);
-  const formData = useSelector(state => state.formData);
   const [quantity, setQuantity] = useState();
+  const [amountOfitems, setAmountOfitems] = useState();
   const searchFormResponse = useSelector(state => state.searchFormResponse);
 
   const settings = {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: (searchFormResponse && searchFormResponse.data && searchFormResponse.data.length > 0 && searchFormResponse.data[0].data.length < 10) ? 2 : 4,
+    slidesToShow: amountOfitems === 1 ? 2 : (amountOfitems < 10 && amountOfitems % 2 === 0 ? 2 : 4),
     slidesToScroll: 1,
     responsive: [
       {
@@ -45,12 +43,14 @@ const ResultsSlider = () => {
   useEffect(() => {
     if (searchFormResponse && searchFormResponse.data && searchFormResponse.data[0] && Object.keys(searchFormResponse.data[0].data).length !== 0) {
       console.log('obj contains something');
-  
+      let items = 0;
       let summ = 0;
       searchFormResponse.data[0].data.map(item => {
         summ += item.value;
+        items += 1
       });
       setQuantity(summ);
+      setAmountOfitems(items)
     }
   }, [searchFormResponse]);
   

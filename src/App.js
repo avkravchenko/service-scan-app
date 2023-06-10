@@ -8,39 +8,35 @@ import SearchPage from './components/main/search-page/search/SearchPage';
 import Results from './components/main/results-page/results/Results';
 import { useDispatch, useSelector } from "react-redux";
 import { addToken } from './store/actions';
-import { useEffect } from 'react';
-
-function PrivateRoute({ isAuthenticated, ...props }) {
-  if (isAuthenticated) {
-    return <Route {...props} />;
-  } else {
-    return <Navigate to="/login" replace />;
-  }
-}
+import { useEffect, useState } from 'react';
 
 function App() {
   const dispatch = useDispatch();
-  
-  useEffect(() => {
-    const tokenFormLs = localStorage.getItem('token')
-    if (tokenFormLs) {
-      dispatch(addToken(tokenFormLs))
-    }
-}, [])
+  const tokenFromLs = localStorage.getItem('token');
+  const [token, setToken] = useState(!!tokenFromLs);
 
-  
+  useEffect(() => {
+    if (tokenFromLs) {
+      dispatch(addToken(tokenFromLs));
+    }
+  }, []);
+
+  const ProtectedRoute = ({ token, children }) => {
+    if (!token) {
+      return <Navigate to="/" replace />;
+    }
+
+    return children;
+  };
 
   return (
     <div className="App">
       <Header />
       <Routes>
-        <Route path='/' element={<Main />} />
-        <Route path='/authorization' element={<Auth />} />
-        <Route
-          path="/search"
-          element={<SearchPage />}
-        />
-        <Route path="/search/results" element={<Results />} />
+        <Route path="/" element={<Main />} />
+        <Route path="/authorization" element={<Auth />} />
+        <Route path="/search" element={<ProtectedRoute token={token}><SearchPage /></ProtectedRoute>} />
+        <Route path="/search/results" element={<ProtectedRoute token={token}><Results /></ProtectedRoute>} />
       </Routes>
       <Footer />
     </div>

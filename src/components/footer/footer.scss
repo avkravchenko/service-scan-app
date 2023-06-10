@@ -28,7 +28,12 @@ footer {
     footer {
     
         .footer-container {
-            padding: 0 1rem;
+            padding: 1rem;
+            align-items: flex-start;
+
+            .footer__logo {
+                padding-top: 1rem;
+            }
         }
     }
 }
