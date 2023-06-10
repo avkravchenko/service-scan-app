@@ -6,25 +6,24 @@ import Main from './components/main/Main';
 import Auth from './components/authorization/Auth';
 import SearchPage from './components/main/search-page/search/SearchPage';
 import Results from './components/main/results-page/results/Results';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToken } from './store/actions';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
-  const dispatch = useDispatch();
-  const tokenFromLs = localStorage.getItem('token');
 
-  useEffect(() => {
-    if (tokenFromLs) {
-      dispatch(addToken(tokenFromLs));
-    }
-  }, []);
+  const tokenFromLs = localStorage.getItem('token')
+  const tokenFromStore = useSelector(state => state.token)
+
+  const dispatch = useDispatch()
+  dispatch(addToken(tokenFromLs))
 
 
   const ProtectedRoute = ({ token, children }) => {
     if (!token) {
       return <Navigate to="/" replace />;
     }
+
     return children;
   };
 
@@ -34,8 +33,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/authorization" element={<Auth />} />
-        <Route path="/search" element={<ProtectedRoute token={tokenFromLs}><SearchPage /></ProtectedRoute>} />
-        <Route path="/search/results" element={<ProtectedRoute token={tokenFromLs}><Results /></ProtectedRoute>} />
+        <Route path="/search" element={<ProtectedRoute token={tokenFromLs || tokenFromStore}><SearchPage /></ProtectedRoute>} />
+        <Route path="/search/results" element={<ProtectedRoute token={tokenFromLs || tokenFromStore}><Results /></ProtectedRoute>} />
       </Routes>
       <Footer />
     </div>
