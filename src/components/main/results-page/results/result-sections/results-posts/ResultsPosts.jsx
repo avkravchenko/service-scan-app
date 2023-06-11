@@ -6,7 +6,7 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/en';
 import uuid from "react-uuid";
 import XMLToHTML from "../../../../../XML-converter/XMLToHTML";
-import { Button } from 'antd';
+import { Button, Spin } from 'antd';
 
 
 const ResultsPosts = () => {
@@ -15,6 +15,7 @@ const ResultsPosts = () => {
   const searchFormIds = useSelector(state => state.searchFormIds)
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false)
+  const [loadingForPosts, setLoadingForPosts] = useState(true)
   const [startIndex, setStartIndex] = useState(0)
   const [endIndex, setEndIndex] = useState(10)
   const searchFormResponse = useSelector(state => state.searchFormResponse)
@@ -42,6 +43,7 @@ const ResultsPosts = () => {
         .then((response) => {
           setPosts((prevPosts) => [...prevPosts, ...response.data]);
           setLoading(false);
+          setLoadingForPosts(false)
         })
         .catch((error) => {
           console.error(error);
@@ -88,7 +90,7 @@ const ResultsPosts = () => {
           }
         </>
       ) : (
-        <p>Данные не найдены, попробуйте использовать другие параметры поиска</p>
+        <>{searchFormIds && searchFormIds.items.length > 0 ? <Spin /> : <p>Нет результатов</p>}</>
       )}
     </div>
   );
