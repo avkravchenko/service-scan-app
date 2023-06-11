@@ -8,7 +8,7 @@ import { ReactComponent as Lock } from '../../assets/lock.svg';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from "react-redux";
-import { addToken } from "../../store/actions";
+import { addExpireDate, addToken } from "../../store/actions";
 import { Button } from "antd";
 
 
@@ -40,8 +40,10 @@ const AuthForm = () => {
             .then((response) => {
                 console.log(response)
               localStorage.setItem('token', response.data.accessToken)
+              localStorage.setItem('expire', response.data.expire)
               response.data.accessToken && navigate('/')
               dispatch(addToken(response.data.accessToken))
+              dispatch(addExpireDate(response.data.expire))
               setLoading(false)
             })
             .catch((error) => {

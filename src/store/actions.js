@@ -1,5 +1,7 @@
 export const ACTIONS = {
     ADD_TOKEN: 'ADD_TOKEN',
+    ADD_EXPIRE_DATE: 'ADD_EXPIRE_DATE',
+    REMOVE_EXPIRE_DATE: 'REMOVE_EXPIRE_DATE',
     REMOVE_TOKEN: 'REMOVE_TOKEN',
     GET_USER_INFO: 'GET_USER_INFO',
     ADD_START_DATE: 'ADD_START_DATE',
@@ -23,6 +25,19 @@ export const addToken = (token) => {
     return {
         type: ACTIONS.ADD_TOKEN,
         token
+    }
+}
+
+export const addExpireDate = (date) => {
+    return {
+        type: ACTIONS.ADD_EXPIRE_DATE,
+        date
+    }
+}
+
+export const removeExpireDate = () => {
+    return {
+        type: ACTIONS.REMOVE_EXPIRE_DATE
     }
 }
 

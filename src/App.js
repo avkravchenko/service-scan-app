@@ -7,8 +7,9 @@ import Auth from './components/authorization/Auth';
 import SearchPage from './components/main/search-page/search/SearchPage';
 import Results from './components/main/results-page/results/Results';
 import { useDispatch, useSelector } from "react-redux";
-import { addToken } from './store/actions';
+import { addToken, removeExpireDate, removeToken } from './store/actions';
 import { useEffect, useState } from 'react';
+import dayjs from 'dayjs';
 
 function App() {
 
@@ -18,6 +19,23 @@ function App() {
   const dispatch = useDispatch()
   dispatch(addToken(tokenFromLs))
 
+  useEffect(() => {
+    const expireDate = localStorage.getItem('expire')
+    if (expireDate) {
+      const expireDateFormated = dayjs(expireDate).format('YYYY-MM-DD');
+      const today = dayjs().format('YYYY-MM-DD');
+      console.log(expireDateFormated)
+      console.log(today)
+
+      if (today === expireDateFormated) {
+        localStorage.removeItem('expire')
+        localStorage.removeItem('token')
+        dispatch(removeExpireDate())
+        dispatch(removeToken())
+      }
+    }
+    
+  },[])
 
   const ProtectedRoute = ({ token, children }) => {
     if (!token) {

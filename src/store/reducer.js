@@ -2,6 +2,7 @@ import { ACTIONS } from "./actions";
 
 export const initialState = {
     token: '',
+    expireDate: '',
     userInfo: {
         companyLimit: '',
         usedCompanyCount: ''
@@ -73,6 +74,13 @@ export const reducer = (state = initialState, action) => {
     switch (action.type) {
         case ACTIONS.ADD_TOKEN:
             return {...state, token: action.token};
+            
+        case ACTIONS.ADD_EXPIRE_DATE:
+            return {...state, expireDate: action.date};
+            
+        case ACTIONS.REMOVE_EXPIRE_DATE:
+            return {...state, expireDate: ''};
+
         case ACTIONS.GET_USER_INFO:  
             return {
                 ...state, userInfo: {
