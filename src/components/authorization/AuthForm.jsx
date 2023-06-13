@@ -48,7 +48,14 @@ const AuthForm = () => {
             })
             .catch((error) => {
               console.error(error);
-              setError('Неправильный логин и/или пароль')
+
+              if (error.response && error.response.data && error.response.data.message) {
+                setError(error.response.data.message);
+              } else {
+                setError('Неправильный логин и/или пароль')
+              }
+              
+              setLoading(false)
             });
     }
 
