@@ -45,7 +45,6 @@ const ResultsSlider = () => {
 
   useEffect(() => {
     if (searchFormResponse && searchFormResponse.data && searchFormResponse.data[0] && Object.keys(searchFormResponse.data[0].data).length !== 0) {
-      console.log('obj contains something');
       let items = 0;
       let summ = 0;
       searchFormResponse.data[0].data.map(item => {

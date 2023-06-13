@@ -24,8 +24,6 @@ const AuthForm = () => {
         password: ''
     })
 
-    console.log(inputsValue)
-
     const handleSubmit = (e) => {
         setLoading(true)
         e.preventDefault()
@@ -38,7 +36,6 @@ const AuthForm = () => {
                 }
             })
             .then((response) => {
-                console.log(response)
               localStorage.setItem('token', response.data.accessToken)
               localStorage.setItem('expire', response.data.expire)
               response.data.accessToken && navigate('/')

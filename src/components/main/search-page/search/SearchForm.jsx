@@ -32,7 +32,7 @@ const SearchForm = () => {
     const handleSubmit = (e) => {
         setLoading(true)
         e.preventDefault();
-        console.log('heh')
+
         if (token && formData) {
             axios
             .post('https://gateway.scan-interfax.ru/api/v1/objectsearch/histograms', formData, {
@@ -43,7 +43,6 @@ const SearchForm = () => {
                 }
             })
             .then((response) => {
-                console.log(response)
                 navigate('/search/results')
                 setLoading(false)
                 dispatch(addSearchFormResponse(response.data))
@@ -74,7 +73,6 @@ const SearchForm = () => {
     }
 
     const handleSelectChange = (value) => {
-        console.log(value)
         dispatch(addTonality(value))
     }
 
