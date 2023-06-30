@@ -9,9 +9,6 @@ import { addINN, addLimit, addSearchFormIds, addSearchFormResponse, addTonality,
 import axios from 'axios';
 import dayjs from 'dayjs';
 
-
-
-
 const SearchForm = () => {
     const startDate = useSelector(state => state.formData.issueDateInterval.startDate)
     const endDate = useSelector(state => state.formData.issueDateInterval.endDate)

@@ -25,7 +25,7 @@ function App() {
       const expireDateFormated = dayjs(expireDate).format('YYYY-MM-DD');
       const today = dayjs().format('YYYY-MM-DD');
 
-      if (today === expireDateFormated) {
+      if (today === expireDateFormated || today > expireDateFormated) {
         localStorage.removeItem('expire')
         localStorage.removeItem('token')
         dispatch(removeExpireDate())
