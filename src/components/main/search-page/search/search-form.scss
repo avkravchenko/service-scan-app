@@ -1,4 +1,5 @@
 .search-form {
+    max-width: fit-content;
     display: flex;
     position: relative;
     gap: 1rem;
@@ -9,14 +10,23 @@
 
     .search-form__inputs {
         display: flex;
-        flex: 1;
+
         gap: 1rem;
         flex-direction: column;
 
         .all-type-of-inputs {
-            width: 100%; /* Make the select inherit the width of its container */
-            max-width: 12rem;
+            padding: .5rem;
+            min-height: 2.5rem;
+            border-radius: .5rem;
+            border-style: none;
+            background-color: #fff;
+            border: solid 1px #C7C7C7;
             box-sizing: border-box;
+
+            &:focus-visible {
+                outline: none; 
+                border-color: rgb(23, 139, 255);
+            }
         }
 
         .req {
@@ -24,24 +34,6 @@
             top: -1px;
         }
     } 
-    
-    .search-form__checks {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        flex: 1;
-
-        .checkbox-group {
-            display: flex;
-            flex-direction: column;
-        }
-    }
-
-    .search-form__btn__wrapper {
-        position: absolute;
-        bottom: 2rem;
-        right: 3rem;
-    }
 }
 
 @media screen and (max-width: 850px) {
@@ -52,9 +44,6 @@
             .all-type-of-inputs {
                 max-width: none;
             }
-        }
-        .search-form__checks {
-            display: none;
         }
 
         .search-form__btn__wrapper {

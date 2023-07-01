@@ -50,6 +50,7 @@
   
   /* General sidebar styles */
   .bm-menu {
+    overflow: hidden !important;
     width: 100%;
     background: #029491;
     padding: 2.5em 1.5em 0;
@@ -83,7 +84,6 @@
   }
 
   .burger-login {
-    margin-top: 20rem;
     p {
         color: #ffffff5b;
     }
