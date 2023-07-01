@@ -16,6 +16,65 @@ const SearchForm = () => {
     }; 
     const form = useForm();
 
+    const formData = {
+        issueDateInterval: {
+          startDate: "",
+          endDate: ""
+        },
+        searchContext: {
+          targetSearchEntitiesContext: {
+            targetSearchEntities: [
+              {
+                type: "company",
+                sparkId: null,
+                entityId: null,
+                inn: null,
+                maxFullness: false,
+                inBusinessNews: false
+              }
+            ],
+            onlyMainRole: false,
+            tonality: "",
+            onlyWithRiskFactors: false,
+            riskFactors: {
+              and: [],
+              or: [],
+              not: []
+            },
+            themes: {
+              and: [],
+              or: [],
+              not: []
+            }
+          },
+          themesFilter: {
+            and: [],
+            or: [],
+            not: []
+          }
+        },
+        searchArea: {
+          excludedSources: [],
+          includedSources: [],
+          includedSourceGroups: [],
+          excludedSourceGroups: []
+        },
+        attributeFilters: {
+          excludeTechNews: true,
+          excludeAnnouncements: true,
+          excludeDigests: true
+        },
+        similarMode: "duplicates",
+        limit: null,
+        sortType: "sourceInfluence",
+        sortDirectionType: "desc",
+        intervalType: "month",
+        histogramTypes: [
+          "totalDocuments",
+          "riskFactors"
+        ]
+  }
+
     return (
         <form className="search-form">
             <div className="search-form__inputs">
