@@ -37,7 +37,7 @@ function App() {
 
   const ProtectedRoute = ({ token, children }) => {
     if (!token) {
-      return <Navigate to="/" replace />;
+      return <Navigate to="/service-scan-app" replace />;
     }
 
     return children;
@@ -47,7 +47,7 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route path="/service-scan-app" element={<Main />} />
         <Route path="/authorization" element={<Auth />} />
         <Route path="/search" element={<ProtectedRoute token={tokenFromLs || tokenFromStore}><SearchPage /></ProtectedRoute>} />
         <Route path="/search/results" element={<ProtectedRoute token={tokenFromLs || tokenFromStore}><Results /></ProtectedRoute>} />
