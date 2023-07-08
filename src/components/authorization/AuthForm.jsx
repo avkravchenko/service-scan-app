@@ -38,7 +38,7 @@ const AuthForm = () => {
             .then((response) => {
               localStorage.setItem('token', response.data.accessToken)
               localStorage.setItem('expire', response.data.expire)
-              response.data.accessToken && navigate('/')
+              response.data.accessToken && navigate('/service-scan-app')
               dispatch(addToken(response.data.accessToken))
               dispatch(addExpireDate(response.data.expire))
               setLoading(false)

@@ -43,7 +43,7 @@ const SearchForm = () => {
                 }
             })
             .then((response) => {
-                navigate('/search/results')
+                navigate('/service-scan-app/search/results')
                 setLoading(false)
                 dispatch(addSearchFormResponse(response.data))
 

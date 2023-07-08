@@ -18,7 +18,7 @@ const LeadSection = () => {
             о компании <br/>
             по его ИНН</h1>
             <p className="main__description-section__description__desc">Комплексный анализ публикаций, получение данных <br/> в формате PDF на электронную почту.</p>
-            {token && <Link className="main__description-section__description__btn-wrapper" to='/search'><Btn text={'Запросить данные'}/></Link>}
+            {token && <Link className="main__description-section__description__btn-wrapper" to='/service-scan-app/search/'><Btn text={'Запросить данные'}/></Link>}
 
         </div>
         <div className="main__description-section__description__image__wrapper">

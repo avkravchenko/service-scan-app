@@ -48,9 +48,9 @@ function App() {
       <Header />
       <Routes>
         <Route path="/service-scan-app" element={<Main />} />
-        <Route path="/authorization" element={<Auth />} />
-        <Route path="/search" element={<ProtectedRoute token={tokenFromLs || tokenFromStore}><SearchPage /></ProtectedRoute>} />
-        <Route path="/search/results" element={<ProtectedRoute token={tokenFromLs || tokenFromStore}><Results /></ProtectedRoute>} />
+        <Route path="/service-scan-app/authorization" element={<Auth />} />
+        <Route path="/service-scan-app/search" element={<ProtectedRoute token={tokenFromLs || tokenFromStore}><SearchPage /></ProtectedRoute>} />
+        <Route path="/service-scan-app/search/results" element={<ProtectedRoute token={tokenFromLs || tokenFromStore}><Results /></ProtectedRoute>} />
       </Routes>
       <Footer />
     </div>

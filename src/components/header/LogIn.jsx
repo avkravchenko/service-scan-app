@@ -8,7 +8,7 @@ const LogIn = () => {
         <div className="header__login-container">
             <button className="header__login-container__singin-btn">Зарегистрироваться</button>
             <div className="line"></div>
-            <Link to='/authorization'>
+            <Link to='/service-scan-app/authorization'>
                 <button className="header__login-container__login-btn"><strong>Войти</strong></button>
             </Link>
         </div>

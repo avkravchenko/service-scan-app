@@ -82,3 +82,27 @@
         }
     }
 }
+@media screen and (max-width: 280px) {
+    .form {
+        margin: 0 auto;
+
+        .form-header {
+            flex-direction: column;
+        }
+
+        .lock {
+            position: absolute;
+            top: -4rem;
+            left: 8rem;
+        }
+
+        .inputs-area {
+            display: flex;
+            
+            .login-with {
+                display: none;
+            }
+        }
+
+    }
+}
