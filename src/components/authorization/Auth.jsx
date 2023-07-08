@@ -17,7 +17,7 @@ const Auth = () => {
                     <AuthForm />
                 </div>
                 <div className="image-wrapper">
-                    <img src={characters} alt="" />
+                    {/* <img src={characters} alt="" /> */}
                 </div>
             </div>
             
