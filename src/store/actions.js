@@ -18,7 +18,8 @@ export const ACTIONS = {
     ADD_SEARCH_FORM_RESPONSE: 'ADD_SEARCH_FORM_RESPONSE',
     ADD_SEARCH_FORM_IDS: 'ADD_SEARCH_FORM_IDS',
     ADD_POSTS: 'ADD_POSTS',
-    REMOVE_POSTS: 'REMOVE_POSTS'
+    REMOVE_POSTS: 'REMOVE_POSTS',
+    TOGGLE_BURGER: 'TOGGLE_BURGER',
 }
 
 export const addToken = (token) => {
@@ -142,6 +143,9 @@ export const addSearchFormIds = (data) => {
         data
     }
 }
+
+
+
 
 /* export const addPosts = (data) => {
     return {

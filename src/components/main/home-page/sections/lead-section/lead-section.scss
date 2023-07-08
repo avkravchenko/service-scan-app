@@ -10,11 +10,14 @@
 
 
         .main__description-section__description__header {
-            font-family: 'montserrat';
+            text-transform: uppercase;
+            line-height: 3.5rem;
+            letter-spacing: 1px;
+            font-weight: 900;
+            font-family: "montserrat";
             text-align: start;
             font-size: 3.75rem;
             margin: 0;
-
         }
         .main__description-section__description__desc {
             text-align: start;

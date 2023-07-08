@@ -1,6 +1,7 @@
 import { ACTIONS } from "./actions";
 
 export const initialState = {
+    burger: false,
     token: '',
     expireDate: '',
     userInfo: {
